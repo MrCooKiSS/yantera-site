@@ -16,7 +16,7 @@
             background: #FEF9F0;
             color: #2C2418;
             line-height: 1.4;
-            scroll-behavior: smooth;
+            /* Убираем scroll-behavior: smooth, чтобы не конфликтовать с JS */
         }
 
         .container {
@@ -66,6 +66,7 @@
             color: #C57F1E;
         }
 
+        /* Кнопка */
         .btn {
             display: inline-block;
             background: #E6A017;
@@ -111,7 +112,7 @@
             margin-bottom: 24px;
         }
         .hero-content h1 {
-            font-size: 3.8rem; /* увеличен */
+            font-size: 3.8rem;
             font-weight: 800;
             line-height: 1.2;
             margin-bottom: 20px;
@@ -144,7 +145,7 @@
         }
         .section-title {
             text-align: center;
-            font-size: 2.5rem; /* увеличен */
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 48px;
             color: #3E2A18;
@@ -197,7 +198,7 @@
             flex: 1;
         }
         .desc-text h2 {
-            font-size: 2.5rem; /* увеличен */
+            font-size: 2.5rem;
             margin-bottom: 20px;
             color: #2C2418;
         }
@@ -248,7 +249,7 @@
             text-align: center;
         }
 
-        /* История и отзывы (общие стили) */
+        /* История и отзывы */
         .history, .reviews {
             padding: 70px 0;
             background: #FFFFFF;
@@ -342,7 +343,6 @@
             <a href="#about">О продукте</a>
             <a href="#history">История</a>
             <a href="#reviews">Отзывы</a>
-            <a href="#order">Заказ</a>
             <a href="#contacts">Контакты</a>
         </div>
     </div>
@@ -386,7 +386,7 @@
         </div>
     </section>
 
-    <!-- О продукте (с составом, весом, сроком, температурой) -->
+    <!-- О продукте -->
     <section id="about" class="product-desc">
         <div class="container desc-inner">
             <div class="desc-text">
@@ -396,7 +396,6 @@
                     ✨ Идеально для полезных перекусов<br>
                     🧈 Подходит для выпечки и десертов
                 </div>
-                <!-- Блок с характеристиками -->
                 <div class="product-specs">
                     <div class="spec-item">
                         <div class="spec-label">Состав</div>
@@ -480,19 +479,50 @@
 </footer>
 
 <script>
-    // Плавный скролл для якорных ссылок
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            if(targetId === "#") return;
-            const target = document.querySelector(targetId);
-            if(target) {
-                e.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+    (function() {
+        // Получаем высоту липкой шапки (динамически, на случай если она изменится)
+        function getHeaderOffset() {
+            const header = document.querySelector('.header');
+            if (!header) return 80;
+            return header.offsetHeight + 20; // 20px дополнительного отступа
+        }
+
+        // Плавная прокрутка к элементу с учётом шапки
+        function smoothScrollTo(targetElement) {
+            if (!targetElement) return;
+            const offset = getHeaderOffset();
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        // Обрабатываем все якорные ссылки
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === "#" || targetId === "") return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    smoothScrollTo(target);
+                    // Обновляем URL без скачка (опционально)
+                    history.pushState(null, null, targetId);
+                }
+            });
         });
-    });
-    console.log("ЯНТЕРА — сайт-визитка обновлён ✨");
+
+        // Если в URL уже есть якорь при загрузке страницы — прокручиваем с учётом шапки
+        if (window.location.hash) {
+            const target = document.querySelector(window.location.hash);
+            if (target) {
+                setTimeout(() => {
+                    smoothScrollTo(target);
+                }, 100);
+            }
+        }
+    })();
 </script>
 </body>
 </html>
