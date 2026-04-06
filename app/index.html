@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link href="https://fonts.googleapis.com/css2?family=Radley:ital@0;1&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./css/index.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Регистрация -->
+        <div id="register-block">
+            <h2>Регистрация</h2>
+            <div class="subtitle">Создайте новый аккаунт</div>
+
+            <div class="form-group">
+                <label>Никнейм</label>
+                <input type="text" id="reg-nickname" placeholder="Введите никнейм">
+            </div>
+
+            <div class="form-group">
+                <label>Пароль</label>
+                <input type="password" id="reg-password" placeholder="Введите пароль">
+            </div>
+            
+            <div class="form-group">
+                <label>Возраст</label>
+                 <input type="number" id="reg-age" placeholder="Введите возраст" min="18" max="100">
+            </div>
+            
+            <div class="form-group">
+                <label>Пол</label>
+                <select id="reg-gender">
+                    <option value="">Выберите пол</option>
+                    <option value="male">Мужской</option>
+                    <option value="female">Женский</option>
+                </select>
+            </div>
+
+
+            <button onclick="registerUser()">Зарегистрироваться</button>
+
+            <div class="switch" onclick="showLogin()">Уже есть аккаунт? Войти</div>
+
+            <div class="message" id="register-message"></div>
+        </div>
+
+        <!-- Логин -->
+        <div id="login-block" style="display: none;">
+            <h2>Вход</h2>
+            <div class="subtitle">Введите свои данные</div>
+
+            <div class="form-group">
+                <label>Никнейм</label>
+                <input type="text" id="login-nickname" placeholder="Введите никнейм">
+            </div>
+
+            <div class="form-group">
+                <label>Пароль</label>
+                <input type="password" id="login-password" placeholder="Введите пароль">
+            </div>
+
+            <button onclick="loginUser()">Войти</button>
+
+            <div class="switch" onclick="showRegister()">Создать новый аккаунт</div>
+
+            <div class="message" id="login-message"></div>
+        </div>
+
+    </div>
+    <script src="./js/auth.js"></script>
+</body>
+</html>

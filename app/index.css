@@ -1,0 +1,92 @@
+/* Базовые стили для страницы авторизации */
+body {
+    background: linear-gradient(145deg, #1a1a1a 0%, #0a0a0a 100%);
+    color: #e0e0e0;
+    font-family: 'Radley', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+h2 {
+    color: #c9952e;
+    text-align: center;
+    margin-bottom: 10px;
+    font-family: 'Cinzel', serif;
+}
+
+.subtitle {
+    text-align: center;
+    color: #b0b0b0;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #c9952e;
+    font-family: 'Cinzel', serif;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to bottom, #7a0e0e 0%, #5a0a0a 100%);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to bottom, #8a1e1e 0%, #6a0a0a 100%);
+    transform: translateY(-2px);
+}
+
+.switch {
+    text-align: center;
+    margin-top: 20px;
+    color: #c9952e;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+#login-block, #register-block {
+    background: rgba(26, 26, 26, 0.9);
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
