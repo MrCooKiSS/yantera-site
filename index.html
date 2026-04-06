@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>ЯНТЕРА — Сливочное масло с мёдом и грецкими орехами</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #FEF9F0;  /* тёплый кремовый фон */
+            color: #2C2418;
+            line-height: 1.4;
+            scroll-behavior: smooth;
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Шапка */
+        .header {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: rgba(254,249,240,0.95);
+            backdrop-filter: blur(8px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            background: linear-gradient(135deg, #E6A017, #C57F1E);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #5A3E1B;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #C57F1E;
+        }
+
+        /* кнопка */
+        .btn {
+            display: inline-block;
+            background: #E6A017;
+            color: white;
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 48px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        .btn:hover {
+            background: #C57F1E;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(198,127,30,0.2);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+        }
+        .hero-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
+        }
+        .hero-badge {
+            background: #FFF2E0;
+            color: #B4621A;
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .hero-content h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #2C2418, #B4621A);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #4A3A28;
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        .hero-image svg {
+            max-width: 100%;
+            height: auto;
+            filter: drop-shadow(0 12px 20px rgba(0,0,0,0.1));
+        }
+
+        /* секция преимуществ */
+        .features {
+            padding: 60px 0;
+            background: #FFFFFF;
+            border-radius: 48px 48px 0 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            color: #3E2A18;
+        }
+        .features-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px;
+            justify-content: center;
+        }
+        .feature-card {
+            background: #FEF9F0;
+            padding: 28px 20px;
+            border-radius: 32px;
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            transition: all 0.2s;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .feature-card:hover {
+            transform: translateY(-6px);
+            background: #FFF5E8;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #C57F1E;
+        }
+        .feature-card p {
+            color: #4A3A28;
+        }
+
+        /* блок продукта */
+        .product-desc {
+            padding: 70px 0;
+            background: #FFF9F2;
+        }
+        .desc-inner {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+        }
+        .desc-text {
+            flex: 1;
+        }
+        .desc-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2C2418;
+        }
+        .desc-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #4A3A28;
+            line-height: 1.5;
+        }
+        .desc-highlight {
+            background: #FFF0DF;
+            padding: 16px 24px;
+            border-radius: 28px;
+            margin: 20px 0;
+            font-weight: 500;
+        }
+        .desc-image {
+            flex: 1;
+            background: #F0E1CE;
+            border-radius: 48px;
+            padding: 32px;
+            text-align: center;
+        }
+
+        /* cta & контакты */
+        .contact {
+            padding: 70px 0;
+            background: linear-gradient(135deg, #FFF2E4, #FFEAD6);
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .contact p {
+            font-size: 1.1rem;
+            max-width: 560px;
+            margin: 0 auto 32px;
+            color: #3E2A18;
+        }
+        .contact-info {
+            margin-top: 32px;
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            font-size: 1rem;
+        }
+        .contact-info span {
+            font-weight: 500;
+            background: white;
+            padding: 8px 18px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* футер */
+        .footer {
+            background: #2C2418;
+            color: #DBCBB8;
+            text-align: center;
+            padding: 32px 0;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .container { padding: 0 20px; }
+            .header-inner { flex-direction: column; align-items: center; }
+            .nav-links { gap: 20px; }
+            .hero { padding: 40px 0; }
+            .btn { padding: 10px 24px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">ЯНТЕРА</div>
+        <div class="nav-links">
+            <a href="#about">О продукте</a>
+            <a href="#order">Заказ</a>
+            <a href="#contacts">Контакты</a>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge">✨ Натуральный премиум продукт</div>
+                <h1>Сливочное масло<br>с мёдом и грецкими орехами</h1>
+                <p>Нежная кремовая текстура, натуральная сладость мёда и хрустящие кусочки орехов.</p>
+                <a href="#order" class="btn">Попробовать →</a>
+            </div>
+            <div class="hero-image">
+                <!-- минималистичная иллюстрация ложка/масло -->
+                <svg width="280" height="280" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="150" cy="150" r="130" fill="#FCE5C1"/>
+                    <path d="M100 160 L130 110 L180 105 L210 150 L190 200 L130 205 L100 160Z" fill="#E6A017" stroke="#C57F1E" stroke-width="2"/>
+                    <circle cx="150" cy="148" r="12" fill="#F7D98C"/>
+                    <circle cx="132" cy="132" r="6" fill="#F2C94C"/>
+                    <circle cx="170" cy="135" r="5" fill="#F2C94C"/>
+                    <path d="M120 170 L140 165 L145 180 L125 185 Z" fill="#A57348"/>
+                    <path d="M165 170 L185 165 L188 180 L168 185 Z" fill="#A57348"/>
+                    <text x="110" y="240" font-size="14" fill="#B4621A" font-weight="bold">ЯНТЕРА</text>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- Преимущества -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Почему выбирают ЯНТЕРА</h2>
+            <div class="features-grid">
+                <div class="feature-card"><div class="feature-icon">🌿</div><h3>100% натурально</h3><p>Только сливки, мёд и грецкие орехи</p></div>
+                <div class="feature-card"><div class="feature-icon">🚫</div><h3>Без добавок</h3><p>Никаких искусственных консервантов</p></div>
+                <div class="feature-card"><div class="feature-icon">🍯</div><h3>Идеальный завтрак</h3><p>Энергия и польза с утра</p></div>
+                <div class="feature-card"><div class="feature-icon">❤️</div><h3>Для всей семьи</h3><p>Вкус, который нравится детям и взрослым</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- О продукте -->
+    <section id="about" class="product-desc">
+        <div class="container desc-inner">
+            <div class="desc-text">
+                <h2>🌿 ЯНТЕРА — натуральный вкус, который хочется повторить</h2>
+                <p>Намажьте на свежий хлеб, тосты или круассаны — и ваш завтрак станет по-настоящему особенным. Нежное сливочное масло, ароматный мёд и хрустящие орехи дарят идеальный баланс сладости и текстуры.</p>
+                <div class="desc-highlight">
+                    ✨ Идеально для полезных перекусов<br>
+                    🧈 Подходит для выпечки и десертов
+                </div>
+                <p>Попробуйте ЯНТЕРА один раз — и она станет вашим любимым домашним деликатесом.</p>
+            </div>
+            <div class="desc-image">
+                <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
+                    <rect x="30" y="70" width="140" height="80" rx="20" fill="#FFE0B5" stroke="#E6A017" stroke-width="3"/>
+                    <path d="M70 100 L90 85 L110 95 L125 110 L105 130 L80 125 L70 100Z" fill="#F5D78A"/>
+                    <circle cx="100" cy="110" r="6" fill="#C57F1E"/>
+                    <path d="M55 145 L75 135 L85 155 L65 160Z" fill="#B4621A"/>
+                </svg>
+                <p style="margin-top: 16px; font-weight: 500;">Сливочное масло с мёдом и орехами</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Заказ и контакты -->
+    <section id="order" class="contact">
+        <div class="container">
+            <h2>📩 Свяжитесь с нами для заказа</h2>
+            <p>Доставка по городу и области. Оптовые партии — специальные условия для магазинов и кафе.</p>
+            <div class="contact-info">
+                <span>📞 +7 (900) 123-45-67</span>
+                <span>✉️ hello@yantera.ru</span>
+                <span>🚚 Доставка 1–2 дня</span>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="footer" id="contacts">
+    <div class="container">
+        <p>© 2026 ЯНТЕРА — Натуральный премиум продукт. Все права защищены.</p>
+        <p style="margin-top: 8px;">Сливочное масло с мёдом и грецкими орехами</p>
+    </div>
+</footer>
+
+<!-- небольшой JS для плавного перехода по ссылкам и динамики -->
+<script>
+    // Плавный скролл для якорных ссылок
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if(targetId === "#") return;
+            const target = document.querySelector(targetId);
+            if(target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    // Можно добавить простую консольную подпись
+    console.log("ЯНТЕРА — сайт-визитка готов ✨");
+</script>
+</body>
+</html>
