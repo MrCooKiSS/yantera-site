@@ -332,6 +332,89 @@
             .btn { padding: 10px 24px; }
             .product-specs { flex-direction: column; }
         }
+
+        /* Яркий блок прайс-листа */
+        .price-block {
+            background: linear-gradient(135deg, #FFF1E0, #FFE2C6);
+            border: 2px solid #E6A017;
+            border-radius: 40px;
+            padding: 20px 24px;
+            margin: 24px 0;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(230, 160, 23, 0.2);
+        }
+        .price-title {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #B4621A;
+            margin-bottom: 12px;
+        }
+        .price-items {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .price-item {
+            font-size: 1.6rem;
+            font-weight: 600;
+            background: white;
+            padding: 8px 24px;
+            border-radius: 60px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+        .price-item strong {
+            color: #E6A017;
+            font-size: 1.9rem;
+        }
+
+        /* Сетка для характеристик */
+        .product-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .info-card {
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            transition: transform 0.2s;
+        }
+        .info-card:hover {
+            transform: translateY(-3px);
+        }
+        .info-label {
+            font-weight: 700;
+            color: #C57F1E;
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            border-left: 4px solid #E6A017;
+            padding-left: 12px;
+        }
+        .info-value {
+            color: #2C2418;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* Преимущества в виде сетки */
+        .advantages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 24px 0;
+        }
+        .advantage-item {
+            background: #FEF3E8;
+            padding: 10px 18px;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #5A3E1B;
+            font-size: 0.95rem;
+            border: 1px solid #FFE0B5;
+        }
     </style>
 </head>
 <body>
@@ -341,7 +424,7 @@
         <div class="logo">ЯНТЕРА</div>
         <div class="nav-links">
             <a href="#about">О продукте</a>
-            <a href="#history">История</a>
+            <!-- <a href="#history">История</a> -->
             <a href="#reviews">Отзывы</a>
             <a href="#contacts">Контакты</a>
         </div>
@@ -356,7 +439,7 @@
                 <div class="hero-badge">✨ Натуральный премиум продукт</div>
                 <h1>Сливочное масло<br>с мёдом и грецкими орехами</h1>
                 <p>Нежная кремовая текстура, натуральная сладость мёда и хрустящие кусочки орехов.</p>
-                <a href="#order" class="btn">Заказать</a>
+                <a href="#contacts" class="btn">Заказать</a>
             </div>
             <div class="hero-image">
                 <svg width="280" height="280" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -392,53 +475,75 @@
             <div class="desc-text">
                 <h2>🌿 ЯНТЕРА — натуральный вкус, который хочется повторить</h2>
                 <p>Намажьте на свежий хлеб, тосты или круассаны — и ваш завтрак станет по-настоящему особенным. Нежное сливочное масло, ароматный мёд и хрустящие орехи дарят идеальный баланс сладости и текстуры.</p>
-                <div class="desc-highlight">
-                    ✨ Идеально для полезных перекусов<br>
-                    🧈 Подходит для выпечки и десертов
-                </div>
-                <div class="product-specs">
-                    <div class="spec-item">
-                        <div class="spec-label">Состав</div>
-                        <div class="spec-value">(будет указан позже)</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Вес</div>
-                        <div class="spec-value">(будет указан позже)</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Срок годности</div>
-                        <div class="spec-value">(будет указан позже)</div>
-                    </div>
-                    <div class="spec-item">
-                        <div class="spec-label">Температура хранения</div>
-                        <div class="spec-value">(будет указана позже)</div>
+
+                <!-- ========== ЯРКИЙ ПРАЙС-ЛИСТ ========== -->
+                <div class="price-block">
+                    <div class="price-title">💰 Прайс-лист</div>
+                    <div class="price-items">
+                        <div class="price-item">100 г — <strong>129 ₽</strong></div>
+                        <div class="price-item">200 г — <strong>249 ₽</strong></div>
                     </div>
                 </div>
+
+                <!-- ========== ОСНОВНЫЕ ХАРАКТЕРИСТИКИ В ДВЕ КОЛОНКИ ========== -->
+                <div class="product-info-grid">
+                    <div class="info-card">
+                        <div class="info-label">📋 Состав</div>
+                        <div class="info-value">Масло сливочное (72,5%), мёд, грецкие орехи</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">📊 Пищевая ценность (на 100 г)</div>
+                        <div class="info-value">
+                            🔥 630 ккал / 2637 кДж (31,5%)<br>
+                            🥩 Белки — 1,9 г (2,5%)<br>
+                            🧈 Жиры — 65,8 г (78%)<br>
+                            🍯 Углеводы — 9,1 г (2,5%)
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">⏳ Срок годности</div>
+                        <div class="info-value">14 суток</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">❄️ Условия хранения</div>
+                        <div class="info-value">от +2°C до +6°C</div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-label">🏭 Изготовитель</div>
+                        <div class="info-value">ООО "СРК-СТ", г. Казань, ул. Товарищеская, 31А</div>
+                    </div>
+                </div>
+
+                <!-- ========== ПРЕИМУЩЕСТВА (из второго фото) ========== -->
+                <div class="advantages">
+                    <div class="advantage-item">✅ 100% натуральные ингредиенты</div>
+                    <div class="advantage-item">🚫 Без искусственных добавок</div>
+                    <div class="advantage-item">🍽️ Идеально для завтрака</div>
+                    <div class="advantage-item">👨‍👩‍👧‍👦 Вкус, который нравится и детям, и взрослым</div>
+                </div>
+
                 <p>Попробуйте ЯНТЕРА один раз — и она станет вашим любимым домашним деликатесом.</p>
             </div>
+
+            <!-- Блок с вашим фото -->
             <div class="desc-image">
-                <svg width="200" height="200" viewBox="0 0 200 200" fill="none">
-                    <rect x="30" y="70" width="140" height="80" rx="20" fill="#FFE0B5" stroke="#E6A017" stroke-width="3"/>
-                    <path d="M70 100 L90 85 L110 95 L125 110 L105 130 L80 125 L70 100Z" fill="#F5D78A"/>
-                    <circle cx="100" cy="110" r="6" fill="#C57F1E"/>
-                    <path d="M55 145 L75 135 L85 155 L65 160Z" fill="#B4621A"/>
-                </svg>
+                <img src="Янтера фото.jpg" alt="Сливочное масло с мёдом и грецкими орехами" style="max-width: 100%; border-radius: 32px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
                 <p style="margin-top: 16px; font-weight: 500;">Сливочное масло с мёдом и орехами</p>
             </div>
         </div>
     </section>
 
     <!-- История бренда -->
-    <section id="history" class="history">
+    <!-- <section id="history" class="history">
         <div class="container">
             <h2>📖 История бренда</h2>
             <div class="history-content">
                 <p>(Текст истории бренда появится позже)</p>
             </div>
         </div>
-    </section>
+    </section> -->
 
-    <!-- Отзывы -->
+    <!-- Отзывы + призыв оставить отзыв -->
     <section id="reviews" class="reviews">
         <div class="container">
             <h2>⭐ Отзывы наших покупателей</h2>
@@ -452,26 +557,37 @@
                 <div class="review-card">
                     <p><strong>Мария:</strong> «Покупала в подарок, теперь и себе заказываю. Очень достойный продукт.»</p>
                 </div>
+
+                <!-- НОВЫЙ БЛОК ПРИЗЫВА ОСТАВИТЬ ОТЗЫВ -->
+                <div class="review-card" style="background: #FFF2DF; border: 1px solid #E6A017; text-align: center;">
+                    <p style="font-size: 1.2rem; margin-bottom: 12px;">✨ Уже попробовали ЯНТЕРА? ✨</p>
+                    <p><strong>Здравствуйте! Спасибо за покупку.</strong><br>
+                    Будем очень благодарны за короткий отзыв 💛</p>
+                    <p style="margin: 16px 0;">🎁 <strong>За отзыв дарим скидку 10% на следующий заказ!</strong></p>
+                    <a href="https://forms.yandex.ru/cloud/69e4c3dce010dbde988a5d4a" target="_blank" class="btn" style="display: inline-block; margin-top: 8px;">📝 Оставить отзыв</a>
+                    <p style="margin-top: 16px; font-size: 0.85rem;">Спасибо, что помогаете нам становиться лучше!</p>
+                </div>
+
                 <p style="margin-top: 24px;">✨ Присоединяйтесь к числу довольных клиентов ✨</p>
             </div>
         </div>
     </section>
 
     <!-- Заказ и контакты -->
-    <section id="order" class="contact">
+    <section id="contacts" class="contact">
         <div class="container">
             <h2>📩 Свяжитесь с нами для заказа</h2>
             <p>Доставка по городу и области. Оптовые партии — специальные условия для магазинов и кафе.</p>
             <div class="contact-info">
-                <span>📞 +7 (900) 123-45-67</span>
-                <span>✉️ hello@yantera.ru</span>
+                <span>📞 +7 (904) 662-72-02</span>
+                <span>✉️ rafa9610@mail.ru</span>
                 <span>🚚 Доставка 1–2 дня</span>
             </div>
         </div>
     </section>
 </main>
 
-<footer class="footer" id="contacts">
+<footer class="footer" id="footer">
     <div class="container">
         <p>© 2026 ЯНТЕРА — Натуральный премиум продукт</p>
         <p style="margin-top: 8px;">Сливочное масло с мёдом и грецкими орехами</p>
