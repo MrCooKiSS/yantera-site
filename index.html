@@ -334,56 +334,60 @@
         }
         
         /* Блок поддержки Фонда содействия инновациям */
-        .support {
-            background: #F5EDE2;
-            padding: 50px 0;
-            border-top: 1px solid #E6D5C0;
-            border-bottom: 1px solid #E6D5C0;
+        .support-v2 {
+            background: #F7F0E6;
+            padding: 45px 0;
+            border-top: 1px solid #EADCC8;
+            border-bottom: 1px solid #EADCC8;
         }
-        .support-container {
-            max-width: 1000px;
-        }
-        .support-content {
+        .support-v2 .support-content {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: center;
-            gap: 32px;
-            text-align: center;
+            gap: 35px;
         }
-        .support-logo {
+        .support-v2 .support-logo {
             flex-shrink: 0;
             background: white;
-            padding: 16px 24px;
-            border-radius: 32px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            padding: 18px 26px;
+            border-radius: 28px;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+            transition: all 0.25s ease;
         }
-        .support-text {
+        .support-v2 .support-logo:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(0,0,0,0.1);
+        }
+        .support-v2 .support-logo img {
+            max-width: 150px;
+            height: auto;
+            display: block;
+        }
+        .support-v2 .support-text {
             flex: 1;
+            min-width: 260px;
+            max-width: 500px;
             font-size: 1rem;
-            line-height: 1.5;
+            line-height: 1.55;
             color: #3E2A18;
+            text-align: center;
         }
-        .support-text strong {
-            color: #B4621A;
+        .support-v2 .support-text strong {
+            color: #C57F1E;
             font-weight: 700;
         }
-        @media (max-width: 768px) {
-            .support-content {
+        @media (max-width: 800px) {
+            .support-v2 .support-content {
                 flex-direction: column;
-                text-align: center;
+                gap: 24px;
             }
-            .support-text {
-                font-size: 0.95rem;
+            .support-v2 .support-text {
+                order: -1;
             }
-            .hero-content h1 { font-size: 2.5rem; }
-            .section-title, .desc-text h2, .contact h2, .history h2, .reviews h2 { font-size: 2rem; }
-            .container { padding: 0 20px; }
-            .header-inner { flex-direction: column; align-items: center; }
-            .nav-links { gap: 16px; justify-content: center; }
-            .hero { padding: 40px 0; }
-            .btn { padding: 10px 24px; }
-            .product-specs { flex-direction: column; }
+            .support-v2 .support-logo img {
+                max-width: 130px;
+            }
         }
 
         /* Яркий блок прайс-листа */
@@ -594,12 +598,12 @@
         </div>
     </section> -->
 
-    <!-- Блок поддержки Фонда содействия инновациям -->
-    <section class="support">
+    <!-- Блок поддержки Вариант 2: Фото слева + текст по центру + фото справа -->
+    <section class="support support-v2">
         <div class="container support-container">
             <div class="support-content">
-                <div class="support-logo">
-                    <img src="fond_image.png" alt="Фонд содействия инновациям" style="max-width: 180px; height: auto;">
+                <div class="support-logo" style="background-color: #40678c;">
+                    <img src="Risunok1.png" alt="Фонд содействия инновациям">
                 </div>
                 <div class="support-text">
                     <p>
@@ -608,6 +612,9 @@
                         <strong>«Платформа университетского технологического предпринимательства»</strong> 
                         федерального проекта <strong>«Технологии»</strong>.
                     </p>
+                </div>
+                <div class="support-logo">
+                    <img src="fond_image.png" alt="Фонд содействия инновациям">
                 </div>
             </div>
         </div>
