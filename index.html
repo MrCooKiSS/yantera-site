@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="icon" href="yantera_logo.png" type="image/svg+xml">
     <title>ЯНТЕРА — Сливочное масло с мёдом и грецкими орехами</title>
     <style>
         * {
@@ -321,8 +322,50 @@
             padding: 32px 0;
             font-size: 0.85rem;
         }
-
+        
+        /* Блок поддержки Фонда содействия инновациям */
+        .support {
+            background: #F5EDE2;
+            padding: 50px 0;
+            border-top: 1px solid #E6D5C0;
+            border-bottom: 1px solid #E6D5C0;
+        }
+        .support-container {
+            max-width: 1000px;
+        }
+        .support-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            text-align: center;
+        }
+        .support-logo {
+            flex-shrink: 0;
+            background: white;
+            padding: 16px 24px;
+            border-radius: 32px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+        .support-text {
+            flex: 1;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #3E2A18;
+        }
+        .support-text strong {
+            color: #B4621A;
+            font-weight: 700;
+        }
         @media (max-width: 768px) {
+            .support-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .support-text {
+                font-size: 0.95rem;
+            }
             .hero-content h1 { font-size: 2.5rem; }
             .section-title, .desc-text h2, .contact h2, .history h2, .reviews h2 { font-size: 2rem; }
             .container { padding: 0 20px; }
@@ -415,6 +458,13 @@
             font-size: 0.95rem;
             border: 1px solid #FFE0B5;
         }
+
+        .hero-image img,
+        .desc-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 32px;
+        }
     </style>
 </head>
 <body>
@@ -442,16 +492,7 @@
                 <a href="#contacts" class="btn">Заказать</a>
             </div>
             <div class="hero-image">
-                <svg width="280" height="280" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="150" cy="150" r="130" fill="#FCE5C1"/>
-                    <path d="M100 160 L130 110 L180 105 L210 150 L190 200 L130 205 L100 160Z" fill="#E6A017" stroke="#C57F1E" stroke-width="2"/>
-                    <circle cx="150" cy="148" r="12" fill="#F7D98C"/>
-                    <circle cx="132" cy="132" r="6" fill="#F2C94C"/>
-                    <circle cx="170" cy="135" r="5" fill="#F2C94C"/>
-                    <path d="M120 170 L140 165 L145 180 L125 185 Z" fill="#A57348"/>
-                    <path d="M165 170 L185 165 L188 180 L168 185 Z" fill="#A57348"/>
-                    <text x="110" y="240" font-size="14" fill="#B4621A" font-weight="bold">ЯНТЕРА</text>
-                </svg>
+                <img src="yantera_logo.png" alt="Логотип ЯНТЕРА">
             </div>
         </div>
     </section>
@@ -527,7 +568,7 @@
 
             <!-- Блок с вашим фото -->
             <div class="desc-image">
-                <img src="Янтера фото.jpg" alt="Сливочное масло с мёдом и грецкими орехами" style="max-width: 100%; border-radius: 32px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+                <img src="yantera_image.png" alt="Сливочное масло с мёдом и грецкими орехами">
                 <p style="margin-top: 16px; font-weight: 500;">Сливочное масло с мёдом и орехами</p>
             </div>
         </div>
@@ -542,6 +583,25 @@
             </div>
         </div>
     </section> -->
+
+    <!-- Блок поддержки Фонда содействия инновациям -->
+    <section class="support">
+        <div class="container support-container">
+            <div class="support-content">
+                <div class="support-logo">
+                    <img src="fond_image.png" alt="Фонд содействия инновациям" style="max-width: 180px; height: auto;">
+                </div>
+                <div class="support-text">
+                    <p>
+                        Проект реализован при поддержке <strong>Фонда содействия инновациям</strong> 
+                        в рамках программы <strong>«Студенческий стартап»</strong> мероприятия 
+                        <strong>«Платформа университетского технологического предпринимательства»</strong> 
+                        федерального проекта <strong>«Технологии»</strong>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Отзывы + призыв оставить отзыв -->
     <section id="reviews" class="reviews">
@@ -561,8 +621,7 @@
                 <!-- НОВЫЙ БЛОК ПРИЗЫВА ОСТАВИТЬ ОТЗЫВ -->
                 <div class="review-card" style="background: #FFF2DF; border: 1px solid #E6A017; text-align: center;">
                     <p style="font-size: 1.2rem; margin-bottom: 12px;">✨ Уже попробовали ЯНТЕРА? ✨</p>
-                    <p><strong>Здравствуйте! Спасибо за покупку.</strong><br>
-                    Будем очень благодарны за короткий отзыв 💛</p>
+                    <p>Будем очень благодарны за короткий отзыв 💛</p>
                     <p style="margin: 16px 0;">🎁 <strong>За отзыв дарим скидку 10% на следующий заказ!</strong></p>
                     <a href="https://forms.yandex.ru/cloud/69e4c3dce010dbde988a5d4a" target="_blank" class="btn" style="display: inline-block; margin-top: 8px;">📝 Оставить отзыв</a>
                     <p style="margin-top: 16px; font-size: 0.85rem;">Спасибо, что помогаете нам становиться лучше!</p>
