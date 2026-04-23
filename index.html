@@ -479,6 +479,52 @@
             height: auto;
             border-radius: 32px;
         }
+        
+        /* Адаптация Hero-блока */
+        @media (max-width: 900px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                padding: 40px 0 30px;
+            }
+            .hero-grid {
+                flex-direction: column;
+                text-align: center;
+                gap: 32px;
+            }
+            .hero-content {
+                order: 1; /* текст сверху, картинка снизу */
+            }
+            .hero-image {
+                order: 2;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+                max-width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-badge {
+                font-size: 0.75rem;
+            }
+            .hero-image img {
+                max-width: 80%;
+                margin: 0 auto;
+            }
+        }
     </style>
 </head>
 <body>
